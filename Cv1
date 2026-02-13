@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Nguyen Tran Hoang</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        display: ['Oswald', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#002B5B',   /* Deep Navy */
+                            main: '#2563EB',   /* Royal Blue */
+                            vivid: '#00D4FF',  /* Cyan */
+                            accent: '#FFD700', /* Gold */
+                        }
+                    },
+                    backgroundImage: {
+                        'ocean-gradient': 'linear-gradient(180deg, #002B5B 0%, #1e40af 50%, #00D4FF 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* A4 Page Setup */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            background-color: #525659;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            font-size: 12px; /* TĂNG LẠI FONT CƠ BẢN LÊN 12px */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        .a4-container {
+            width: 210mm;
+            height: 296mm; /* Cố định chiều cao A4 */
+            background: white;
+            position: relative;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: row;
+            overflow: hidden; 
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 24px; 
+            transform: translateX(-50%);
+            top: 12px;
+            bottom: 12px;
+            width: 2px;
+            background: linear-gradient(to bottom, #2563EB 0%, #00D4FF 100%);
+            z-index: 0;
+        }
+
+        .shape-container {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .job-card {
+            transition: all 0.2s ease;
+        }
+        
+        .job-card:hover {
+            transform: translateX(3px);
+            background-color: #f0f9ff;
+            border-color: #bae6fd;
+        }
+
+        /* Print Settings */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                margin: 0;
+                display: block;
+            }
+            .a4-container {
+                width: 210mm;
+                height: 297mm; /* Full A4 height */
+                box-shadow: none;
+                margin: 0;
+                border: none;
+            }
+            .no-print {
+                display: none !important;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-container" id="cv-content">
+        
+        <!-- LEFT COLUMN: DARK OCEAN (35%) -->
+        <!-- Tăng lại padding p-6 -->
+        <aside class="w-[35%] bg-ocean-gradient text-white p-6 flex flex-col relative overflow-hidden h-full">
+            
+            <!-- SVG 3D Decor -->
+            <svg class="shape-container w-40 h-40 -top-10 -left-10 opacity-30" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="50" fill="url(#grad1)"></circle>
+                <defs>
+                    <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                        <stop offset="0%" style="stop-color:rgb(255,255,255);stop-opacity:0.8"></stop>
+                        <stop offset="100%" style="stop-color:rgb(255,255,255);stop-opacity:0"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+
+            <svg class="shape-container w-56 h-56 bottom-8 -left-16 opacity-10" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="48" stroke="white" stroke-width="1" fill="none"></circle>
+            </svg>
+
+            <!-- Pattern -->
+            <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: radial-gradient(#fff 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+            <!-- CONTACT -->
+            <!-- Tăng margin mb-6 -->
+            <div class="relative z-10 mb-6 mt-2">
+                <h3 class="font-display text-lg uppercase tracking-wider mb-3 border-b border-white/20 pb-2 text-brand-vivid">Contact</h3>
+                <!-- Tăng khoảng cách dòng space-y-3 -->
+                <ul class="space-y-3 text-xs font-medium">
+                    <li class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-vivid text-[10px]">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <a href="tel:0355333819" class="hover:text-brand-vivid transition">0355333819</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-vivid text-[10px]">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <a href="mailto:ntranhoang77@gmail.com" class="hover:text-brand-vivid transition truncate">ntranhoang77@gmail.com</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-vivid text-[10px]">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <span>Ba Dinh, Ha Noi</span>
+                    </li>
+                    
+                    <li class="flex items-center gap-2 mt-4">
+                        <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-vivid text-[10px]">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <a href="https://www.facebook.com/hoang.tran.905381" target="_blank" class="hover:text-brand-vivid transition truncate w-32 font-bold">Hoang Tran</a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <div class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-brand-vivid text-[10px]">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <a href="https://www.linkedin.com/in/tranhoang-nguyen-ba9719388" target="_blank" class="hover:text-brand-vivid transition truncate w-32 font-bold">tranhoang-nguyen</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- EDUCATION -->
+            <div class="relative z-10 mb-6">
+                <h3 class="font-display text-lg uppercase tracking-wider mb-3 border-b border-white/20 pb-2 text-brand-vivid">Education</h3>
+                <div class="bg-white/5 p-4 rounded-lg border border-white/10 backdrop-blur-sm shadow-md">
+                    <h4 class="font-bold text-sm leading-tight mb-1">Foreign Trade University</h4>
+                    <p class="text-brand-vivid text-[10px] font-bold uppercase tracking-wide">Japanese Business</p>
+                    <div class="flex items-center gap-2 mt-2">
+                        <span class="text-[9px] bg-white/20 px-2 py-0.5 rounded text-white/90">Year 1</span>
+                        <span class="text-[9px] text-white/70 italic">High-Quality Program</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="relative z-10 mb-6 flex-grow">
+                <h3 class="font-display text-lg uppercase tracking-wider mb-3 border-b border-white/20 pb-2 text-brand-vivid">Skills</h3>
+                
+                <div class="space-y-3 mb-5">
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1 font-semibold">Content &amp; Ideas <i class="fas fa-pen-nib text-brand-vivid text-[10px]"></i></div>
+                        <div class="w-full bg-black/20 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-vivid to-blue-400 h-full rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1 font-semibold">Project Coord <i class="fas fa-tasks text-brand-vivid text-[10px]"></i></div>
+                        <div class="w-full bg-black/20 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-vivid to-blue-400 h-full rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-[11px] mb-1 font-semibold">Teamwork <i class="fas fa-users text-brand-vivid text-[10px]"></i></div>
+                        <div class="w-full bg-black/20 h-1.5 rounded-full overflow-hidden">
+                            <div class="bg-gradient-to-r from-brand-vivid to-blue-400 h-full rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 rounded-lg p-3 border border-white/10 shadow-md">
+                    <h4 class="text-[10px] font-bold uppercase text-brand-vivid mb-2 tracking-widest">Tech Stack</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white/10 border border-white/10 rounded text-[10px] font-mono">Google Suite</span>
+                        <span class="px-2 py-1 bg-white/10 border border-white/10 rounded text-[10px] font-mono">ChatGPT</span>
+                        <span class="px-2 py-1 bg-white/10 border border-white/10 rounded text-[10px] font-mono">Gemini</span>
+                        <span class="px-2 py-1 bg-white/10 border border-white/10 rounded text-[10px] font-mono">CapCut</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LANGUAGES -->
+            <div class="relative z-10">
+                <h3 class="font-display text-lg uppercase tracking-wider mb-2 border-b border-white/20 pb-2 text-brand-vivid">Languages</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-white/10 rounded p-2 text-center border border-white/5">
+                        <div class="text-[10px] text-white/60 uppercase">Japanese</div>
+                        <div class="text-base font-bold text-white">N3</div>
+                        <div class="text-[8px] text-brand-vivid">JLPT</div>
+                    </div>
+                    <div class="bg-white/10 rounded p-2 text-center border border-white/5">
+                        <div class="text-[10px] text-white/60 uppercase">English</div>
+                        <div class="text-base font-bold text-white">B1</div>
+                        <div class="text-[8px] text-brand-vivid">Intermediate</div>
+                    </div>
+                </div>
+            </div>
+
+        </aside>
+
+        <!-- RIGHT COLUMN: CONTENT (65%) -->
+        <!-- Tăng lại padding p-6 -->
+        <main class="w-[65%] bg-white p-6 text-slate-800 relative flex flex-col overflow-hidden h-full">
+            
+            <!-- SVG Decor -->
+            <svg class="shape-container w-48 h-48 -top-16 -right-16 opacity-60" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="50" fill="url(#gradBlue)"></circle>
+                <defs>
+                    <radialGradient id="gradBlue" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                        <stop offset="0%" style="stop-color:rgb(14, 165, 233);stop-opacity:0.4"></stop>
+                        <stop offset="100%" style="stop-color:rgb(14, 165, 233);stop-opacity:0"></stop>
+                    </radialGradient>
+                </defs>
+            </svg>
+
+            <!-- HEADER -->
+            <div class="mb-4 pb-2 border-b-2 border-slate-100 relative z-10">
+                <h1 class="font-display text-5xl font-bold text-brand-dark uppercase tracking-tighter leading-none mb-2">
+                    Nguyen <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-main to-brand-vivid">Tran Hoang</span>
+                </h1>
+                <div class="flex items-center gap-2">
+                    <span class="h-1 w-8 bg-brand-main rounded-full"></span>
+                    <p class="text-sm font-bold tracking-wide text-brand-main uppercase">Marketing & Community Builder | Visual Content</p>
+                </div>
+            </div>
+
+            <!-- PROFILE SUMMARY (HIGHLIGHTED CARD) -->
+            <!-- Tăng margin mb-5, padding p-4 -->
+            <div class="mb-5 relative z-10 group">
+                <div class="absolute -inset-0.5 bg-gradient-to-r from-brand-main to-brand-vivid rounded-lg opacity-20 group-hover:opacity-40 transition duration-500 blur-[2px]"></div>
+                <div class="relative bg-white rounded-lg p-4 border border-slate-100 shadow-sm overflow-hidden">
+                    <i class="fas fa-quote-right absolute top-2 right-4 text-5xl text-slate-50 opacity-50 transform rotate-12 z-0"></i>
+                    <h2 class="font-display text-sm font-bold uppercase text-brand-dark mb-2 flex items-center gap-2 relative z-10">
+                        <span class="w-1 h-4 bg-gradient-to-b from-brand-main to-brand-vivid rounded-full"></span>
+                        About Me
+                    </h2>
+                    <p class="text-slate-600 leading-relaxed text-justify text-xs relative z-10 font-medium">
+                        A proactive Marketing-oriented student with strong experience in student community building. Passionate about <span class="text-brand-main font-bold">visual storytelling</span> and digital engagement. With leadership experience in HR and External Relations, I have successfully led teams and executed student campaigns with measurable impact. Especially interested in content creation and social media branding.
+                    </p>
+                </div>
+            </div>
+
+            <!-- RESEARCH HIGHLIGHT -->
+            <!-- Tăng margin mb-4, padding p-3 -->
+            <div class="mb-4 relative z-10">
+                <div class="bg-gradient-to-r from-pink-500 to-purple-600 p-[1px] rounded-xl shadow-md">
+                    <div class="bg-white rounded-[11px] p-3">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="bg-purple-100 text-purple-700 w-6 h-6 flex items-center justify-center rounded-full text-[10px]"><i class="fas fa-microscope"></i></span>
+                            <h3 class="font-display text-sm font-bold uppercase text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600">Marketing Research Project</h3>
+                        </div>
+                        <h4 class="font-bold text-xs text-slate-800 mb-1">Kidult Trend & Emotional Consumption Behavior</h4>
+                        <p class="text-[10px] text-slate-500 italic mb-2">Scientific Research | Sample size: 487 (Gen Z & Millennials)</p>
+                        <ul class="text-xs text-slate-600 list-disc ml-4 space-y-1">
+                            <li>Analyzed drivers: Nostalgia, Escapism, Identity Expression.</li>
+                            <li><strong>Key Finding:</strong> "Identity Expression" is a top driver for Gen Z.</li>
+                            <li>Proposed strategic marketing approaches for emotional brands.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPERIENCE SECTION -->
+            <div class="flex-grow relative z-10">
+                <h2 class="font-display text-lg font-bold uppercase text-brand-dark mb-4 flex items-center gap-2">
+                    <span class="bg-gradient-to-br from-brand-dark to-brand-main text-white w-6 h-6 flex items-center justify-center rounded text-[10px]"><i class="fas fa-briefcase"></i></span>
+                    Experience
+                </h2>
+
+                <!-- Tăng khoảng cách dòng space-y-3 (Vừa phải) -->
+                <div class="relative space-y-3">
+                    <div class="timeline-line"></div>
+
+                    <!-- JOB 1: TRÀ ĐÁ MENTOR -->
+                    <div class="relative pl-14">
+                        <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                        <div class="job-card rounded-lg p-1">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-display text-sm font-bold text-brand-main">
+                                    Business Development Intern 
+                                    <span class="ml-1 text-[10px] font-bold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full align-middle">Present</span>
+                                </h3>
+                                <span class="text-xs font-bold text-slate-700">Trà Đá Mentor</span>
+                            </div>
+                            <p class="text-xs text-slate-600">Assisted in market research and creating sales pitching decks for business expansion.</p>
+                        </div>
+                    </div>
+
+                    <!-- JOB 2: JPC CLUB -->
+                    <div class="relative pl-14">
+                        <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                        <div class="job-card rounded-lg p-1">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-display text-sm font-bold text-brand-main">External Relations Lead</h3>
+                                <span class="text-xs font-bold text-slate-700">JPC Club - MID Event</span>
+                            </div>
+                            <p class="text-xs text-green-600 font-bold italic mb-0.5"><i class="fas fa-arrow-up text-[10px] mr-1"></i> Achieved revenue doubling initial investment</p>
+                            <p class="text-xs text-slate-600">Led external relations for Japanese culinary culture event. Managed partnerships and stakeholder engagement.</p>
+                        </div>
+                    </div>
+
+                    <!-- JOB 3: ENACTUS FTU -->
+                    <div class="relative pl-14">
+                         <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                        <div class="job-card rounded-lg p-1">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-display text-sm font-bold text-brand-main">External Relations Member</h3>
+                                <span class="text-xs font-bold text-slate-700">Enactus FTU</span>
+                            </div>
+                            <p class="text-xs text-slate-600">Participated in partnership support activities. Assisted in communication with partners for student innovation and social impact projects.</p>
+                        </div>
+                    </div>
+
+                    <!-- JOB 4: MOON TUTORING -->
+                    <div class="relative pl-14">
+                         <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                        <div class="job-card rounded-lg p-1">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-display text-sm font-bold text-brand-main">HR Lead</h3>
+                                <span class="text-xs font-bold text-slate-700">Moon Tutoring Center</span>
+                            </div>
+                            <p class="text-xs text-green-600 font-bold italic mb-0.5"><i class="fas fa-pen-fancy text-[10px] mr-1"></i> Designed candidate requirements and job descriptions.</p>
+                            <p class="text-xs text-slate-600">Led end-to-end recruitment and managed <strong>20+ high-quality tutors</strong>. Coordinated scheduling and internal communication.</p>
+                        </div>
+                    </div>
+
+                     <!-- JOB 5: C-LIBRARY -->
+                     <div class="relative pl-14">
+                        <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                       <div class="job-card rounded-lg p-1">
+                           <div class="flex justify-between items-baseline">
+                               <h3 class="font-display text-sm font-bold text-brand-main">Sub-lead (Ext. Relations)</h3>
+                                <span class="text-xs font-bold text-slate-700">C-Library Club</span>
+                           </div>
+                           <p class="text-xs text-slate-600">Supported partnership outreach and club activity coordination. Assisted in connecting the club with partners and student communities.</p>
+                       </div>
+                   </div>
+
+                    <!-- JOB 6: C-VOICE -->
+                    <div class="relative pl-14">
+                         <div class="absolute left-6 -translate-x-1/2 top-1.5 w-3 h-3 rounded-full bg-brand-main border-2 border-white z-10"></div>
+                         <div class="job-card rounded-lg p-1">
+                            <div class="flex justify-between items-baseline">
+                                <h3 class="font-display text-sm font-bold text-brand-main">Sub-lead (Ext. Relations)</h3>
+                                <span class="text-xs font-bold text-slate-700">C-Voice Event</span>
+                            </div>
+                            <p class="text-xs text-green-600 font-bold italic mb-0.5"><i class="fas fa-book text-[10px] mr-1"></i> Designed partnership proposals to improve brand presence.</p>
+                            <p class="text-xs text-slate-600">Engaged <strong>100+ businesses</strong>. Secured <strong>50M VND cash + 20M VND in-kind</strong> sponsorship for literary & artistic performance event.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
+
+
